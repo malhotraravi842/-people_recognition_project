@@ -22,10 +22,23 @@ const UserList = () => {
       <h5 style={{ textAlign: "center" }}>
         Total User Count: {(userList && userList.length) || 0}
       </h5>
-      {userList &&
-        userList.map((data, i) => {
-          return <DetailCard key={i} data={data} onDeleteUser={onDeleteUser} />;
-        })}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          padding: "0 20px",
+        }}
+      >
+        {userList &&
+          userList.map((data, i) => {
+            return (
+              <div style={{ padding: "5px" }}>
+                <DetailCard key={i} data={data} onDeleteUser={onDeleteUser} />
+              </div>
+            );
+          })}
+      </div>
 
       {userList && userList.length === 0 && <div>No Records Found</div>}
     </div>
